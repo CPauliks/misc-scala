@@ -46,8 +46,8 @@ object Execute {
     case Div(left, right) => Cell(apply(store)(left).get / apply(store)(right).get)
     case Variable(name) => store(name)
     case Assignment(left, right) => {
-      val lvalue = apply(store)(left)
       val rvalue = apply(store)(right)
+      val lvalue = apply(store)(left)
       lvalue.set(rvalue.get)
     }
     case Sequence(statements @ _*) =>
