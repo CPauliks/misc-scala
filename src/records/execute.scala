@@ -46,8 +46,8 @@ object Execute {
     case Div(left, right) => binaryOperation(store, left, right, _/_)
     case Variable(name) => store(name)
     case Assignment(left, right) => {
-      val lvalue = apply(store)(left)
       val rvalue = apply(store)(right)
+      val lvalue = apply(store)(left)
       lvalue.set(rvalue.get)
     }
     case Sequence(statements @ _*) =>
