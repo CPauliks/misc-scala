@@ -3,12 +3,12 @@ package imperative
 object mainWithParser {
 
   val store = Map[String, LValue[Int]](
-    "x" -> Cell(2),
-    "y" -> Cell(3),
+    "x" -> Cell(0),
+    "y" -> Cell(0),
     "r" -> Cell(0)
   )
 
-  val s = "while (y) { r = r + x, y = y - 1 }"
+  val s = "{x = 2, y = 3, while (y) { r = r + x, y = y - 1 }}"
 
   def main(args: Array[String]) {
     println(s)
