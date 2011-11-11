@@ -2,7 +2,7 @@ package records
 
 object ParserTest {
 	
-	val s = "while (n) {s = s + n.value, n = n.next}"
+	val s = "n = n.next.last"
 	
     def main(args: Array[String]) {
 	    println(s)
