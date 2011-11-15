@@ -2,7 +2,7 @@ package records
 import scala.collection.immutable.StringOps;
 object ParserTest {
 	
-	val s = "while(y){n = n.next.last,\ny = 0};\n".stripLineEnd.stripSuffix(";")
+	val s = "{ n.value = 7, n }.next = 12;".stripLineEnd.stripSuffix(";")
 	val c = "struct ListNode { value, next }"
 	val v = "var n"
 	
@@ -11,14 +11,12 @@ object ParserTest {
 	    val p = StatementParser.parseAll(StatementParser.statement, s)
 	    val q = StatementParser.parseAll(StatementParser.newVar, v)
 	    val r = StatementParser.parseAll(StatementParser.struct, c)
-	    if (p.successful){
-	      println(p.get)
-	      println(q.get)
-	      println(r.get)
-	      //println(execute(store)(p.get))
-	    }
-	    else {
-	    	println(p) 
-	    }
+	    val b = "n = new " + r.get._2.fields
+	    println(b)
+	    val a = StatementParser.parseAll(StatementParser.statement, b)
+	    println(q.get)
+	    println(r.get)
+	    println(a.get)
+	    println(p.get)
 	  }
 }

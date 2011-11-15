@@ -16,7 +16,7 @@ object StatementParser extends JavaTokenParsers {
   )
   def factor: Parser[Statement] = (
     wholeNumber ^^ { case s => Constant(s.toInt) }
-  | "new" ~> ident ^^ {case c => New(Clazz(c)) }  
+  | "new List(" ~> repsep(ident, ",") <~ ")" ^^ {case fields => New(Clazz(fields: _*)) }  
   | field
   | ident ^^ { case s => Variable(s) }
   | "(" ~> expr <~ ")" ^^ { case e => e }
@@ -32,7 +32,7 @@ object StatementParser extends JavaTokenParsers {
   | ident ~ "." ~ ident ^^ { case v ~ _ ~ f => Selection(Variable(v), f) }
   )
   def struct: Parser[(String, Clazz)] = (
-    "struct" ~> ident ~ "{" ~ repsep(ident, ",") <~ "}" ^^ { case record ~ _ ~ fields => Tuple2(record ,Clazz(fields: _*))}    
+    "struct" ~> ident ~ "{" ~ repsep(ident, ",") <~ "}" ^^ { case record ~ _ ~ fields => Tuple2(record, Clazz(fields: _*))}    
   )
   def newVar: Parser[String] = (
     "var" ~> ident ^^  {case v => v}
