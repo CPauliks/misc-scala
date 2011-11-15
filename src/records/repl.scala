@@ -11,7 +11,7 @@ object REPL {
   
   /**
    * A Map of all defined records from "struct" lines,
-   * used to replace Clazz names with field names
+   * used for dependency injection for "new" lines
    */
   var structs = Map[String, Clazz]()
   
@@ -19,6 +19,11 @@ object REPL {
     println("Enter commands separated by a semicolon.  Enter help; for more information.")
     var currentCommand = new StringBuilder()
     var currentLine = ""
+    
+    /**
+     * Loop repeatedly waiting for a line to end with a semicolon.
+     * Otherwise append the current line to the StringBuilder and ask again
+     */
     while(true) {
       println("Awaiting next command...")
       currentLine = readLine().stripLineEnd
@@ -33,6 +38,10 @@ object REPL {
       }
     }
     
+    /**
+     * Look at the most recent command and check for non-executable commands
+     * Otherwise parse it
+     */
     def process(command: String) {
       command match {
         case "help" => printHelp
@@ -57,7 +66,8 @@ object REPL {
       
       /**
        * If the statement is a new record assignment
-       * we need to replace the word with the fields it represents in order for the evaluator to work
+       * we need to pull out the typedef and and replace it with the actual fields
+       * simple dependency injection 
        */
       val modifiedCommand =  {  
         if (command.contains("new")){
@@ -98,7 +108,7 @@ object REPL {
       }
       
       /**
-       * An executable.
+       * An executable line.
        */
       else if (executable.successful) {
         val toExecute = executable.get

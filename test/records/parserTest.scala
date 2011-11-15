@@ -1,8 +1,12 @@
 package records
 import scala.collection.immutable.StringOps;
+
+/**
+ * Testing different parser requirements for the REPL.
+ * Specifically dependency injection for new structs
+ */
 object ParserTest {
-	
-	val s = "n.next = new ListNode;".stripLineEnd.stripSuffix(";")
+  
 	val c = "struct ListNode { value, next }"
 	val v = "var n"
 	
