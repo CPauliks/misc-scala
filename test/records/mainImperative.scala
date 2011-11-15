@@ -2,8 +2,8 @@ package records
 object mainImperative {
 
   val store = Map[String, Cell](
-    "x" -> Cell(2),
-    "y" -> Cell(3),
+    "x" -> Cell(0),
+    "y" -> Cell(0),
     "r" -> Cell(0)
   )
 
@@ -14,6 +14,8 @@ object mainImperative {
         Assignment(Variable("y"), Minus(Variable("y"), Constant(1)))
       )
     )
+    
+  val t = "while (y) {\nr = r + x,\ny=y-1\n};".stripSuffix(";")
 
   def main(args: Array[String]) {
     println(store)

@@ -3,6 +3,9 @@ C:\Users\Chris\git\misc-scala\bin;C:\Users\Chris\Documents\eclipse\configuration
 C:\Users\Chris\git\misc-scala\test\records\mainImperative.scala -> C:\Users\Chris\git\misc-scala\test\records\mainImperative.scala
 C:\Users\Chris\git\misc-scala\test\records\mainImperative.scala -> C:\Users\Chris\git\misc-scala\src\records\syntax.scala
 C:\Users\Chris\git\misc-scala\test\records\mainImperative.scala -> C:\Users\Chris\git\misc-scala\src\records\execute.scala
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\src\records\validate.scala
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\src\records\syntax.scala
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala
 C:\Users\Chris\git\misc-scala\test\records\parserTest.scala -> C:\Users\Chris\git\misc-scala\src\records\syntax.scala
 C:\Users\Chris\git\misc-scala\test\records\parserTest.scala -> C:\Users\Chris\git\misc-scala\test\records\parserTest.scala
 C:\Users\Chris\git\misc-scala\test\records\parserTest.scala -> C:\Users\Chris\git\misc-scala\src\records\parser.scala
@@ -38,9 +41,18 @@ C:\Users\Chris\git\misc-scala\src\imperative\mainFac.scala -> C:\Users\Chris\git
 C:\Users\Chris\git\misc-scala\test\records\mainSimple.scala -> C:\Users\Chris\git\misc-scala\src\records\syntax.scala
 C:\Users\Chris\git\misc-scala\test\records\mainSimple.scala -> C:\Users\Chris\git\misc-scala\src\records\execute.scala
 C:\Users\Chris\git\misc-scala\test\records\mainSimple.scala -> C:\Users\Chris\git\misc-scala\test\records\mainSimple.scala
+C:\Users\Chris\git\misc-scala\test\records\TestParser.scala -> C:\Users\Chris\git\misc-scala\src\records\syntax.scala
+C:\Users\Chris\git\misc-scala\test\records\TestParser.scala -> C:\Users\Chris\git\misc-scala\test\records\TestParser.scala
+C:\Users\Chris\git\misc-scala\test\records\TestParser.scala -> C:\Users\Chris\git\misc-scala\src\records\parser.scala
 -------
 C:\Users\Chris\git\misc-scala\test\records\mainImperative.scala -> C:\Users\Chris\git\misc-scala\bin\records\mainImperative.class
 C:\Users\Chris\git\misc-scala\test\records\mainImperative.scala -> C:\Users\Chris\git\misc-scala\bin\records\mainImperative$.class
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestValidator$$anonfun$4.class
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestValidator.class
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestValidator$$anonfun$1.class
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestValidator$$anonfun$3.class
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestValidator$$anonfun$5.class
+C:\Users\Chris\git\misc-scala\test\records\TestValidator.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestValidator$$anonfun$2.class
 C:\Users\Chris\git\misc-scala\test\records\parserTest.scala -> C:\Users\Chris\git\misc-scala\bin\records\ParserTest.class
 C:\Users\Chris\git\misc-scala\test\records\parserTest.scala -> C:\Users\Chris\git\misc-scala\bin\records\ParserTest$.class
 C:\Users\Chris\git\misc-scala\src\records\repl.scala -> C:\Users\Chris\git\misc-scala\bin\records\REPL$.class
@@ -231,3 +243,7 @@ C:\Users\Chris\git\misc-scala\src\imperative\mainFac.scala -> C:\Users\Chris\git
 C:\Users\Chris\git\misc-scala\src\imperative\mainFac.scala -> C:\Users\Chris\git\misc-scala\bin\imperative\mainFac$.class
 C:\Users\Chris\git\misc-scala\test\records\mainSimple.scala -> C:\Users\Chris\git\misc-scala\bin\records\mainSimple$.class
 C:\Users\Chris\git\misc-scala\test\records\mainSimple.scala -> C:\Users\Chris\git\misc-scala\bin\records\mainSimple.class
+C:\Users\Chris\git\misc-scala\test\records\TestParser.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestParser$$anonfun$1.class
+C:\Users\Chris\git\misc-scala\test\records\TestParser.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestParser.class
+C:\Users\Chris\git\misc-scala\test\records\TestParser.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestParser$$anonfun$2.class
+C:\Users\Chris\git\misc-scala\test\records\TestParser.scala -> C:\Users\Chris\git\misc-scala\bin\records\TestParser$$anonfun$3.class
