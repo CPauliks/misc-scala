@@ -58,5 +58,4 @@ object Validate {
     case New(_) => false
     case _ => true
   }
-  
 }

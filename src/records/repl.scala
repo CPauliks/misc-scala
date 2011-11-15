@@ -63,11 +63,17 @@ object REPL {
         if (command.contains("new")){
           val location = command.indexOf("new")
           val structname = command.substring(location + 3).trim()
-          command.replaceAll(structname, structs(structname).fields.toString());
-	      }
+          if (structs.contains(structname)) {
+            command.replaceAll(structname, structs(structname).fields.toString());
+          }
+          else {
+            ""
+          }
+	    }
+        
 	      else {
 	    	 command;
-	        }
+	       }
 	  }
       
       /**
@@ -77,23 +83,35 @@ object REPL {
       val variable = StatementParser.parseAll(StatementParser.newVar, modifiedCommand)
       val executable = StatementParser.parseAll(StatementParser.statement, modifiedCommand)
       
+      /**
+       * New typedef
+       */
       if (struct.successful){
         structs += struct.get
       }
       
+      /**
+       * New variable creation.
+       */
       else if (variable.successful) {
         store += (variable.get -> Cell(0))
       }
       
+      /**
+       * An executable.
+       */
       else if (executable.successful) {
         val toExecute = executable.get
         if(Validate(toExecute)) {
           println(Execute(store)(toExecute))
         }
       }
-      
+
+      /**
+       * None of the above.
+       */
       else {
-        println(executable.get)
+        println("Invalid command")
       }
       
     }
