@@ -31,4 +31,10 @@ object StatementParser extends JavaTokenParsers {
     ident ~ "." ~ field ^^ { case v ~ _ ~ Selection(Variable(r),f) => Selection(Selection(Variable(v), r),f) }
   | ident ~ "." ~ ident ^^ { case v ~ _ ~ f => Selection(Variable(v), f) }
   )
+  def struct: Parser[(String, Clazz)] = (
+    "struct" ~> ident ~ "{" ~ repsep(ident, ",") <~ "}" ^^ { case record ~ _ ~ fields => Tuple2(record ,Clazz(fields: _*))}    
+  )
+  def newVar: Parser[String] = (
+    "var" ~> ident ^^  {case v => v}
+  )
   }

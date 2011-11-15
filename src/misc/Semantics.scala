@@ -1,5 +1,0 @@
-package misc
-
-class Semantics {
-
-}
