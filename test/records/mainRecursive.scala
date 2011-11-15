@@ -1,5 +1,4 @@
 package records
-
 object mainRecursive {
 
   val store = Map[String, Cell](

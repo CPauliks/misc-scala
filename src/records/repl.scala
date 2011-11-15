@@ -1,6 +1,5 @@
 package records
 
-import scala.collection.mutable.Map
 import scala.collection.mutable.StringBuilder
 
 object REPL {
@@ -39,8 +38,8 @@ object REPL {
         case "help" => printHelp
         case "quit" => exit(0)
         case "clear" => {
-          store.clear()
-          structs.clear()
+          store = store.empty
+          structs = structs.empty
           println("Store has been emptied!")
         }
         case "dump" => println(store)
@@ -55,21 +54,44 @@ object REPL {
     }
     
     def parseCommand(command: String) {
-      val struct = StatementParser.parseAll(StatementParser.struct, command)
-      val variable = StatementParser.parseAll(StatementParser.newVar, command)
-      val executable = StatementParser.parseAll(StatementParser.statement, command)
+      
+      /**
+       * If the statement is a new record assignment
+       * we need to replace the word with the fields it represents in order for the evaluator to work
+       */
+      val modifiedCommand =  {  
+        if (command.contains("new")){
+          val location = command.indexOf("new")
+          val structname = command.substring(location + 3).trim()
+          command.replaceAll(structname, structs(structname).fields.toString());
+	      }
+	      else {
+	    	 command;
+	        }
+	  }
+      
+      /**
+       * Try parsing the command in all 3 ways. Do whichever one works, and print the result; 
+       */
+      val struct = StatementParser.parseAll(StatementParser.struct, modifiedCommand)
+      val variable = StatementParser.parseAll(StatementParser.newVar, modifiedCommand)
+      val executable = StatementParser.parseAll(StatementParser.statement, modifiedCommand)
+      
       if (struct.successful){
         structs += struct.get
       }
+      
       else if (variable.successful) {
         store += (variable.get -> Cell(0))
       }
+      
       else if (executable.successful) {
         val toExecute = executable.get
         if(Validate(toExecute)) {
           println(Execute(store)(toExecute))
         }
       }
+      
       else {
         println(executable.get)
       }

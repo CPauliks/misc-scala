@@ -1,5 +1,4 @@
 package records
-
 object mainSimple {
 
   val studentCourseRecord = Clazz("firstExamScore", "secondExamScore", "totalScore")

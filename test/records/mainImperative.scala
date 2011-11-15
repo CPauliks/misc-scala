@@ -1,5 +1,4 @@
 package records
-
 object mainImperative {
 
   val store = Map[String, Cell](
